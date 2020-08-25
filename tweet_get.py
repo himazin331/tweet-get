@@ -45,5 +45,9 @@ try:
 
 except tweepy.TweepError as e:
 
-    print("Error Code: {}".format(e.args[0][0]['code']))
-    print(e.args[0][0]['message'])
+    try:
+        print("Error Code: {}".format(e.args[0][0]['code']))
+        print(e.args[0][0]['message'])
+    except TypeError:
+        print(e)
+        print("The user has set their tweets to private.")
